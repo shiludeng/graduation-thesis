@@ -1,0 +1,119 @@
+############### Entry Point #######################
+(20, 30)
+
+############### Outer Walls #######################
+# the number of outer walls
+4
+
+# the points of outer walls
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+
+############### Rooms #############################
+# the number of rooms
+5
+
+#
+## Room 101 ##
+#
+# the name of the room
+101
+
+# the number of the points of the room
+4
+# the points of the room
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the door point
+(20, 30)
+
+#
+## Room 102 ##
+#
+# the name of the room
+102
+
+# the number of the points of the room
+4
+# the points of the room
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the door point
+(20, 30)
+
+
+#
+## Room 103 ##
+#
+# the name of the room
+103
+
+# the number of the points of the room
+4
+# the points of the room
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the door point
+(20, 30)
+
+#
+## Room 104 ##
+#
+# the name of the room
+104
+
+# the number of the points of the room
+4
+# the points of the room
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the door point
+(20, 30)
+
+
+#
+## Room 105 ##
+#
+# the name of the room
+105
+
+# the number of the points of the room
+4
+# the points of the room
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the door point
+(20, 30)
+
+
+############### Elevators #########################
+# the number of elevators
+1
+
+#
+## Elevator 1 ##
+#
+# the name of the elevator
+elevator1
+
+# the 4 points of the elevator
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the entry point
+(20, 30)
+
+############### Stairs #########################
+# the number of stairs
+1
+
+#
+## Stair 1 ##
+#
+# the name of the stair
+stair1
+
+# the 4 points of the stair
+(20, 30),(20, 40), (20, 50), (20, 30)
+
+# the entry point
+(20, 30)

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">导航客户端</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string-array name="nav_paths">
+        <item>直走到达楼梯口</item>
+        <item>上楼梯后左转</item>
+        <item>直走10米到达305</item>
+        <item>直走10米到达目的地306</item>
+    </string-array>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_success">SuccessActivity</string>
+
+</resources>

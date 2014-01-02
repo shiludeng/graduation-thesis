@@ -14,3 +14,9 @@
 
 *.lastbuildstate
 *.exe
+
+*.class
+
+*.dex
+
+*.cache

@@ -8,9 +8,10 @@
 
     <string-array name="nav_paths">
         <item>直走到达楼梯口</item>
-        <item>上楼梯后左转</item>
-        <item>直走10米到达305</item>
-        <item>直走10米到达目的地306</item>
+        <item>经楼梯到达第2层</item>
+        <item>经楼梯到达第3层</item>
+        <item>经楼梯到达第4层</item>
+        <item>直走3米到达目的地404</item>
     </string-array>
 
     <string name="title_activity_splash">SplashActivity</string>

@@ -20,3 +20,7 @@
 *.dex
 
 *.cache
+
+*.apk
+
+*.ap_

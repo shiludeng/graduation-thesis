@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -46,6 +47,23 @@ struct Stair {
 	Entry entry;
 };
 
+struct Node {
+	int index;
+	string description;
+	bool is_destination;
+	int x, y;
+	Node() {
+	}
+	Node(int x, int y) : x(x), y(y) {
+	}
+	Node(Point p) : x(p.x), y(p.y) {
+	}
+	Node(int x, int y, string description) : x(x), y(y), description(description) {
+	}
+	Node(Point p, string description) : x(p.x), y(p.y), description(description) {
+	}
+};
+
 int outerwall_num;
 vector<Point> outerwall_points;
 
@@ -59,6 +77,12 @@ int stair_num;
 vector<Stair> stairs;
 
 Door entry;
+
+vector<Node> nfc_nodes;
+
+// the node index of the room's door
+unordered_map<string, int> room_node_table;
+
 
 void ReadOneLine(char *dest) {
 	while (cin.getline(dest, max_length_one_line)) {
@@ -114,8 +138,6 @@ void ReadOutWalls() {
 		outerwall_points[t++] = Point(x, y);
 		p = strtok(NULL, d);
 	}
-
-
 }
 
 void ReadRoom(Room &room) {
@@ -268,10 +290,58 @@ void ReadStairs() {
 	}
 }
 
+void insert_nfc_node(Point p) {
+	for (int i = 0; i < nfc_nodes.size(); i++) {
+		if (nfc_nodes[i].x == p.x && nfc_nodes[i].y == p.y) {
+			return;
+		}
+	}
+	nfc_nodes.push_back(Node(p));
+}
+
 void DistributeNodes() {
+	// init the vector
+	nfc_nodes = vector<Node>();
+
+	// the entry
+	nfc_nodes.push_back(entry);
+
+	// the corner of outer walls
+	for (int i = 0; i < outerwall_points.size(); i++) {
+		insert_nfc_node(outerwall_points[i]);
+	}
+
+	// the door and corners of the rooms
+	for (int i = 0; i < rooms.size(); i++) {
+		insert_nfc_node(rooms[i].door);
+		for (int j = 0; j < rooms[i].vertexes.size(); j++) {
+			insert_nfc_node(rooms[i].vertexes[j]);
+		}
+	}
+
+	// the entry and corners of the stairs
+	for (int i = 0; i < stairs.size(); i++) {
+		insert_nfc_node(stairs[i].entry);
+		for (int j = 0; j < 4; j++) {
+			insert_nfc_node(stairs[i].p[i]);
+		}
+	}
+
+	// the entry and corners of the elevators
+	for (int i = 0; i < elevators.size(); i++) {
+		insert_nfc_node(elevators[i].entry);
+		for (int j = 0; j < 4; j++) {
+			insert_nfc_node(elevators[i].p[i]);
+		}
+	}
+}
+
+void BuildRoomNodeMap() {
+
 }
 
 void BuildPath() {
+
 }
 
 void BestPath() {
@@ -344,6 +414,7 @@ int main() {
 	DumpStairs();
 
 	DistributeNodes();
+	BuildRoomNodeMap();
 	BuildPath();
 
 	BestPath();

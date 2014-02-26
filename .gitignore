@@ -24,3 +24,7 @@
 *.apk
 
 *.ap_
+
+bin
+
+Debug
